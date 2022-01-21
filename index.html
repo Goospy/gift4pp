@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* 爸爸我是一名工程狮,</span><br />
+				<span class="space"/><span class="comments">* 所以写了一个小页面做猪猪呢生日礼物.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"墨辰"</span>);<br />
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"皮皮"</span>);<br />
+				<span class="comments">// 2020年8月27日 爸爸问猪猪需不需要长期饭票. </span><br />
+				i.ask(u);<br />
+				<span class="comments">// 你这只猪猪毫不犹豫接受了.</span><br />
+				u.accepted();<br />
+				<span class="comments">// 从那以后,爸爸每天钻研养猪手册.</span><br />
+				i.feed(u);<br />
+				<span class="comments">// 争取把猪猪养得又白又胖.</span><br />
+				i.takeCareOf(u);<br />
+				<span class="comments">// 猪猪你说你不会轻易让饲养员签定终身劳动合同.</span><br />
+				<span class="comments">// 所以我一直认真喂养,等你答应永远赖上我.</span><br />
+				<span class="keyword">boolean</span> isHesitate = <span class="keyword">true</span>;<br />
+				<span class="keyword">while</span> (isHesitate) {<br />
+				<span class="placeholder"/>i.waitFor(u);<br />
+				<span class="placeholder"/><span class="comments">// 爸爸觉得终身饲养是件大工程</span><br />
+				<span class="placeholder"/><span class="comments">// 猪猪你应该好好想想会不会吃空我这坐矿山.</span><br />
+				<span class="placeholder"/>isHesitate = u.thinkOver();<br />
+				}<br />
+				<span class="comments">// 但是爸爸相信,猪猪你最终会达到两百斤,然后掉落我给你布下呢陷阱.</span><br />
+				i.willMarry(u);<br />
+				i.liveHappilyWith(u);<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						皮皮, 我们已经在一起
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						做你永远呢饲养员.<br/>
+						<div class="signature">- 墨辰</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div id="copyright">-->
+			<!--Inspired by <a href="http://www.openrise.com/lab/FlowerPower/">FlowerPower</a> project.<br />-->
+			<!--Copyright © 2011 <a href='http://hackerzhou.me'>hackerzhou.me</a> 2009-2011-->
+		<!--</div>-->
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2020, 7, 26);
+		together.setHours(20);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
